@@ -1,0 +1,46 @@
+"""Создайте классы Product и Category.
+
+Для класса Product:
+
+название (name),
+описание (description),
+цена (price),
+количество в наличии (quantity).
+
+Для класса Category определите следующие свойства:
+
+название (name),
+описание (description),
+список товаров категории (products)."""
+
+
+class Product:
+    """ Класс продукта, который обладает следующими атрибутами"""
+    name = str  # название
+    description = str  # описание
+    price = float  # цена
+    quantity = int  # количество в наличии
+
+
+    def __init__(self, name, description, price, quantity):
+        self.name = name
+        self.description = description
+        self.price = price
+        self.quantity = quantity
+
+
+class Category:
+    """ Класс категории, который обладает следующими атрибутами"""
+    category_count = 0  # количество категорий
+    product_count = 0  # количество товаров
+    name = str  # название
+    description = str  # описание
+    products = list  # список товаров
+
+
+    def __init__(self, name, description, products):
+        self.name = name
+        self.description = description
+        self.products = products
+        Category.category_count += 1
+        Category.product_count += len(self.products)
