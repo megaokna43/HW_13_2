@@ -1,0 +1,48 @@
+lass Product:
+    """ Класс продукта, который обладает следующими атрибутами"""
+    name: str  # название
+    description: str  # описание
+    price: float  # цена
+    quantity: int  # количество в наличии
+
+    def __init__(self, name, description, price, quantity):
+        self.name = name
+        self.description = description
+        self.__price = price
+        self.quantity = quantity
+
+
+class Category:
+    """ Класс категории, который обладает следующими атрибутами"""
+    category_count = 0  # количество категорий
+    product_count = 0  # количество товаров
+    name = str  # название
+    description = str  # описание
+    products = list  # список товаров
+
+    def __init__(self, name, description, products):
+        self.name = name
+        self.description = description
+        self.__products = products
+        Category.category_count += 1
+        Category.product_count += 1
+
+    def add_product(self, product: Product):
+        self.__products.append(product)
+        Category.product_count += 1
+
+# Тест
+def test_add_product():
+    product_data = {
+        "name": "Samsung Galaxy C23 Ultra",
+        "description": "256GB, Серый цвет, 200MP камера",
+        "price": 180000.0,
+        "quantity": 5
+    }
+    product = Product(**product_data)
+    category = Category("Electronics", "Electronics category", [])
+    category.add_product(product)
+    assert len(self.__products) == 2
+    assert Category.product_count == 1
+
+test_add_product()
