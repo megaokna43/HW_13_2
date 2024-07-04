@@ -39,10 +39,10 @@ def test_add_product():
         "price": 180000.0,
         "quantity": 5
     }
-    product = Product(**product_data)
-    category = Category("Electronics", "Electronics category", [])
-    category.add_product(product)
-    assert len(self.__products) == 2
-    assert Category.product_count == 1
+product = Product(**product_data)
+Category = Category("Electronics", "Electronics category", [])
+category.test_add_product(product)
+assert len(category.__products) == 1
+assert Category.product_count == 1
 
 test_add_product()
